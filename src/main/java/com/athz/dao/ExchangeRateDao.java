@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.security.GuardedObject;
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
@@ -11,7 +15,10 @@ import java.time.temporal.TemporalUnit;
 import org.apache.hc.client5.http.fluent.Request;
 
 import com.athz.config.Configuration;
+<<<<<<< HEAD
 import com.athz.config.Log;
+=======
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
 import com.athz.dto.ExchangeRate;
 import com.google.gson.Gson;
 
@@ -19,7 +26,11 @@ public class ExchangeRateDao {
 	//Store a API request as a Object
 	private ExchangeRate exchangeRate;
 	//Configuration object has all properties
+<<<<<<< HEAD
 	private Configuration conf = new Configuration();
+=======
+	private final Configuration conf = new Configuration();
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
 	//gson
 	private Gson gson = new Gson();
 
@@ -40,13 +51,21 @@ public class ExchangeRateDao {
 	 */
 	private void readRates() {
 		File file = new File(conf.getConfigurationProperty("path.data"));
+<<<<<<< HEAD
 		Log.logger.info("Reading values from local file");
+=======
+		System.out.println("Reading exchange rates");
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
 		try ( FileReader reader = new FileReader(file) ) {
 			if (file.exists())
 				this.exchangeRate = gson.fromJson(reader, ExchangeRate.class);
 			else
 				this.exchangeRate = null;
+<<<<<<< HEAD
 			Log.logger.info(exchangeRate.toString());
+=======
+			System.out.println(exchangeRate);
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

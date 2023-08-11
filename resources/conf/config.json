@@ -1,8 +1,14 @@
 {
   "api.url": "https://api.apilayer.com/fixer/latest?symbols=EUR%2CGBP%2CJPY%2CKRW%2CUSD%2CRUB&base=",
+<<<<<<< HEAD
   "api.key": "PUT YOUR Fixer API KEY HERE",
   "api.base": "MXN",
   "api.last.update": "2023-08-10",
+=======
+  "api.key": "PUT YOUR FIXER API KEY HERE",
+  "api.base": "MXN",
+  "api.last.update": "2023-05-15",
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
   "path.data": "resources/data/RequestResult.json",
   "path.images": "resources/images/",
   "gui.title": "Conversor de monedas",

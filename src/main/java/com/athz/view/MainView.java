@@ -5,7 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import com.athz.config.Configuration;
+<<<<<<< HEAD
 import com.athz.config.Log;
+=======
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
 import com.athz.controller.ExchangeRateController;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 
@@ -58,8 +61,12 @@ public class MainView extends JFrame {
 		currenciesListCombo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String selected = currenciesListCombo.getSelectedItem().toString();
+<<<<<<< HEAD
 				// System.out.println(selected);
 				Log.logger.info("Moneda seleccionada: "+selected);
+=======
+				System.out.println(selected);
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
 				if (currenciesListCombo.getSelectedIndex() > 0) {
 					foreignCurrencyTextField.setEnabled(true);
 					foreignCurrencyTag.setText(selected);
@@ -105,7 +112,11 @@ public class MainView extends JFrame {
 	private void initConf() {
 		this.config = new Configuration();
 		String base = config.getConfigurationProperty("api.base");
+<<<<<<< HEAD
 		Log.logger.info("Moneda base: "+base);
+=======
+		System.out.println(base);
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
 		this.exchangeController = new ExchangeRateController(base);
 		this.numberFormat = NumberFormat.getInstance();
 		this.numberFormat.setMaximumFractionDigits(2);
@@ -280,8 +291,12 @@ public class MainView extends JFrame {
 		Double result = local.getName().equals("local") ? exchangeController.toForeignCurrency(amount, target)
 				: exchangeController.toLocaleCurrency(amount, target);
 		String resFormated = String.valueOf(numberFormat.format(result));
+<<<<<<< HEAD
 		// System.out.println(resFormated);
 		Log.logger.info("Resultado: "+resFormated);
+=======
+		System.out.println(resFormated);
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
 		foreign.setText(resFormated);
 	}
 

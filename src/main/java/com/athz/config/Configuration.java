@@ -12,9 +12,15 @@ import com.google.gson.JsonObject;
 public class Configuration {
     //Path for configuration file
     private final String CONF_PATH = System.getProperty("user.dir") + "/resources/conf/config.json";
+<<<<<<< HEAD
      //Gson for read and write json files
      private static Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
      //configurations
+=======
+    //Gson for read and write json files
+    private Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
+	//JSON object to store all properties from config.json
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
     private JsonObject configuration;
 
     /**
@@ -22,7 +28,26 @@ public class Configuration {
      * into a JsonObject
      */
     public Configuration(){
+<<<<<<< HEAD
         this.configuration = ReadConfigurations.getConfigurations();
+=======
+        getConfigurationProperties();
+    }
+
+    /**
+     * Read config.json file
+     */
+    private void getConfigurationProperties(){
+        File userJson = new File(CONF_PATH);
+		
+        try(Reader reader = new FileReader(userJson)){
+            this.configuration = gson.fromJson(reader, JsonObject.class);
+            System.out.println(gson.toJson(this.configuration));
+        }
+        catch(IOException e){
+            System.out.println(e);
+        }
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
     }
 
     /**
@@ -34,8 +59,13 @@ public class Configuration {
         File userJson = new File(CONF_PATH);
 
         try(FileWriter writer = new FileWriter(userJson)){
+<<<<<<< HEAD
             configuration.addProperty(key, value);
             gson.toJson(configuration, writer);
+=======
+            this.configuration.addProperty(key, value);
+            gson.toJson(this.configuration, writer);
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
         }
         catch(IOException e){
 
@@ -49,7 +79,11 @@ public class Configuration {
      * @return String: Value of the property key
      */
     public String getConfigurationProperty(String key){
+<<<<<<< HEAD
         return configuration.get(key).getAsString();
+=======
+        return this.configuration.get(key).getAsString();
+>>>>>>> c0539056daa389c742783140cf711571bb1c1e84
     }
 	
 }
